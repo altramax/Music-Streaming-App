@@ -17,13 +17,13 @@ const NavbarTemplate = () => {
           <p className="header__text">Bob Smith</p>
         </div>
         <div className="nav__body">
-          <NavLink to="/" className={`nav__body__groups ${({ isActive }) => (isActive ? "active" : undefined)}`}>
+          <NavLink to="/" className={`nav__body__groups ${({ isActive }: any) => (isActive ? "active" : undefined)}`}>
             <div className="nav__body__groups__sub">
               <img src={headphone} alt="" />
               <p>Discover</p>
             </div>
           </NavLink>
-          <NavLink to="/search" className={`nav__body__groups ${({ isActive }) => (isActive ? "active" : undefined)}`}>
+          <NavLink to="/search" className={`nav__body__groups ${({ isActive }: any) => (isActive ? "active" : undefined)}`}>
             <div className="nav__body__groups__sub">
               <img src={search} alt="" />
               <p>Search</p>

@@ -46,7 +46,7 @@ const PlayerTemplate = () => {
        return clearInterval(playing);
       } else {
         audioprogressBar.current.value = audio.current?.currentTime;
-        setTimeProgress(audio.current?.currentTime);
+        setTimeProgress(audio?.current?.currentTime);
       }
     }, 1000);
 
