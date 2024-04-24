@@ -6,7 +6,7 @@ const PlayerTemplateStyle = styled.div`
   z-index: 4;
 
   .player__container {
-    background-color: 	rgb(255,255,255, 0.9);
+    background-color: rgb(255, 255, 255, 0.9);
     padding: 15px 20px;
     border: 0.2px solid;
     display: flex;
@@ -22,8 +22,8 @@ const PlayerTemplateStyle = styled.div`
     display: flex;
     gap: 5px;
 
-    .audio__tag{
-        display: none;
+    .audio__tag {
+      display: none;
     }
     .backward__control,
     .forward__control {
@@ -40,7 +40,17 @@ const PlayerTemplateStyle = styled.div`
     }
   }
 
+  .range__group {
+    display: flex;
+    font-size: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    gap:10px;
+  }
   .player__range {
+    width: 90%;
+    display: block;
   }
 
   .player__details__group {
@@ -59,6 +69,7 @@ const PlayerTemplateStyle = styled.div`
       justify-content: start;
       gap: 40px;
       .player__cover__img {
+        width: 15%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -67,34 +78,44 @@ const PlayerTemplateStyle = styled.div`
           display: block;
           width: 30px;
         }
-        p{
-            font-size: 10px;
-            width: fit-content;
+        p {
+          font-size: 10px;
+          width: fit-content;
         }
       }
     }
 
     .player__controls__group {
-        display: flex;
-        gap: 5px;
-        .backward__control,
-        .forward__control {
-          width: 15px;
-        }
-        .forward__control {
-          rotate: 180deg;
-        }
+      display: flex;
+      gap: 5px;
+      .backward__control,
+      .forward__control {
+        width: 15px;
       }
-    
-      .player__play__pause__group {
-        img {
-          width: 40px;
-        }
+      .forward__control {
+        rotate: 180deg;
       }
-
-    .player__range {
-        width: 70%;
     }
+
+    .player__play__pause__group {
+      img {
+        width: 40px;
+      }
+    }
+
+    .range__group {
+      display: flex;
+      font-size: 10px;
+      justify-content: space-between;
+      align-items: center;
+      width: 70%;
+      gap:10px;
+    }
+    .player__range {
+      width: 90%;
+      display: block;
+    }
+
 
     .player__details__group {
       display: flex;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CarouselStyle = styled.div`
   .carousel__container {
     width: 100%;
-    height: 300px;
+    height: 320px;
     overflow: hidden;
   }
   .carousel__group {
@@ -11,6 +11,7 @@ const CarouselStyle = styled.div`
     gap: 50px;
     padding: 20px;
     transition: transform 0.5s ease;
+    overflow-x: scroll;
   }
   .slide{
     min-width: 100%;
@@ -32,6 +33,10 @@ const CarouselStyle = styled.div`
     .right{
       rotate: 180deg;
     }
+  }
+
+  .inner{
+    overflow-x: auto;
   }
 
   @media(min-width: 768px){

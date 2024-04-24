@@ -5,8 +5,10 @@ import search from "../../../assets/search.png";
 import heart from "../../../assets/heart.png";
 import hambrger from "../../../assets/hamburger.png";
 import play from "../../../assets/play.png";
+import { NavLink } from "react-router-dom";
 
 const NavbarTemplate = () => {
+
   return (
     <NavbarTemplateStyle>
       <div className="nav__container">
@@ -15,18 +17,18 @@ const NavbarTemplate = () => {
           <p className="header__text">Bob Smith</p>
         </div>
         <div className="nav__body">
-          <div className="nav__body__groups">
+          <NavLink to="/" className={`nav__body__groups ${({ isActive }) => (isActive ? "active" : undefined)}`}>
             <div className="nav__body__groups__sub">
               <img src={headphone} alt="" />
               <p>Discover</p>
             </div>
-          </div>
-          <div className="nav__body__groups">
+          </NavLink>
+          <NavLink to="/search" className={`nav__body__groups ${({ isActive }) => (isActive ? "active" : undefined)}`}>
             <div className="nav__body__groups__sub">
               <img src={search} alt="" />
               <p>Search</p>
             </div>
-          </div>
+          </NavLink>
           <div className="nav__body__groups">
             <div className="nav__body__groups__sub">
               <img src={heart} alt="" />

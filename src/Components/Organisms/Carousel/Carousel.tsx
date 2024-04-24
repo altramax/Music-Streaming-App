@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CarouselStyle from "./CarouselStyle";
 import leftImg from "../../../assets/left-arrow-backup-2-svgrepo-com.svg";
 import MusicCard from "../MusicCard/MusicCard";
@@ -9,19 +8,6 @@ type carouseltype = {
 };
 
 const Carousel = ({ songArr, collectionTitle }: carouseltype) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 2 ? prevIndex : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? prevIndex : prevIndex - 1
-    );
-  };
 
   return (
     <CarouselStyle>
@@ -30,14 +16,14 @@ const Carousel = ({ songArr, collectionTitle }: carouseltype) => {
           <h3 className="title">{collectionTitle}</h3>
           <div className="line"></div>
           <div className="directions">
-            <img src={leftImg} alt="" className="left" onClick={prevSlide} />
-            <img src={leftImg} alt="" className="right" onClick={nextSlide} />
+            <img src={leftImg} alt="" className="left"  />
+            <img src={leftImg} alt="" className="right" />
           </div>
         </div>
 
         <div
           className="carousel__group"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+
         >
           {songArr !== null &&
             songArr !== undefined &&

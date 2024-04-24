@@ -43,6 +43,7 @@ position: relative;
     align-items: center;
     justify-content: center;
     padding: 30px 0;
+    text-decoration: none;
     img {
       width: 20px;
       display: block;
@@ -53,7 +54,7 @@ position: relative;
       color: #fff;
     }
   }
-  .nav__body__groups:hover {
+  .active{
     background: rgb(255, 255, 255);
     background: linear-gradient(
       117deg,
