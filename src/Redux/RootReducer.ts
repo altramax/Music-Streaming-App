@@ -1,11 +1,14 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import GetMusicSlice from "./GetMusicSlice";
-import ControlSlice from "./ControlSlice";
+import MusicPrimaryControlSlice from "./MusicPrimaryControlSlice";
+import MusicSecondaryControlSlice from "./MusicSecondaryControlSlice"
 
 
  const rootReducer:any = combineReducers({
    allMusic : GetMusicSlice,
-   control: ControlSlice
+   primaryControl: MusicPrimaryControlSlice,
+   secondaryControl: MusicSecondaryControlSlice
+
 });
 
 export default rootReducer;

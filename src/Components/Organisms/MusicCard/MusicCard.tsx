@@ -1,5 +1,5 @@
-import { currentCollection, currentMusic, playMusic } from "../../../Redux/ControlSlice";
-import { useAppDispatch } from "../../../Redux/Hooks";
+import { currentCollection, currentMusic, playMusic, pauseMusic} from "../../../Redux/MusicPrimaryControlSlice";
+import { useAppDispatch} from "../../../Redux/Hooks";
 import MusicCardStyle from "./MusicCardStyle";
 
 type cardType = {
@@ -11,10 +11,12 @@ const MusicCard = ({ song, collection}: cardType) => {
   const dispatch = useAppDispatch();
 
   const selectedSongHandler = () => {
-    dispatch(currentMusic(song));
-    dispatch(playMusic());
+    dispatch(pauseMusic());
+    dispatch(currentMusic(song)); 
+    dispatch(playMusic([song, collection.data]));
     dispatch(currentCollection(collection.data))
   };
+
 
   return (
     <MusicCardStyle>

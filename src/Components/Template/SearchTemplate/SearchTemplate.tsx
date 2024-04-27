@@ -35,6 +35,7 @@ const SearchTemplate = () => {
               className="search__input"
               value={searchTerm}
               onChange={handlerInput}
+              placeholder="Search Our Music Library"
             />
             <img src={search} alt="" onClick={handleSearch} />
           </div>
@@ -46,11 +47,11 @@ const SearchTemplate = () => {
           </div>
         </div>
         <div className="searchTemplate__body">
-          { control.searchMusic?.data?.data.length === 0 ? (
+          {control?.searchMusic?.data?.data === undefined || control?.searchMusic?.data?.data.length === 0 ? (
             <div>
               <EmptyState
                 header="Nothing to Show"
-                text="Start Searching for Music Here"
+                text="Search for your Desired Music"
               />
             </div>
           ) : (

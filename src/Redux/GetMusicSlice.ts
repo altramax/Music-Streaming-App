@@ -15,7 +15,7 @@ export const GetMusicArr = createAsyncThunk("music", async () => {
   const options = {
     method: "GET",
     url: "https://deezerdevs-deezer.p.rapidapi.com/search",
-    params: { q: "burna boy" },
+    params: { q: "dunsin oyekan" },
     headers: {
       "X-RapidAPI-Key": "606c4d9964msh60c2204677a2630p12a1a5jsn9624125c5e1f",
       "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",

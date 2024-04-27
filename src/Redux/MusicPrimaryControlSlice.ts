@@ -1,27 +1,31 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 type productsType = {
   play: boolean;
   currentMusic: any;
   currentMusicCollection: any;
-  nextMusic: any;
-  previousMusic: any
+  musicIndex: number;
 };
 
 const initialState: productsType = {
   play: false,
   currentMusic: null,
   currentMusicCollection: [],
-  nextMusic: [],
-  previousMusic:[]
+  musicIndex: 0,
 };
 
-export const ControlSlice = createSlice({
+export const MusicPrimaryControlSlice = createSlice({
   name: "Music",
   initialState,
   reducers: {
-    playMusic: (state) => {
-      state.play = true;
+    playMusic: (state, action) => {
+      action.payload[1].filter((song: any, i: any) => {
+        if (song.id === action.payload[0].id) {
+           state.musicIndex = i
+           state.play = true
+           console.log(i);
+        }
+      })
     },
     pauseMusic: (state) => {
       state.play = false;
@@ -35,12 +39,9 @@ export const ControlSlice = createSlice({
     currentCollection: (state, action) => {
       state.currentMusicCollection = action.payload;
     },
-    nextMusic :  (state)=>{
-       let g = state.currentMusicCollection.filter( (song:any) => {
-          console.log( song.id, state.currentMusic[0])
-        });
-        console.log(g);
-    }
+    currentMusicIndex: (state, action) => {
+      state.musicIndex = action.payload;
+    },
   },
 });
 
@@ -50,6 +51,6 @@ export const {
   currentMusic,
   clearMusic,
   currentCollection,
-  nextMusic
-} = ControlSlice.actions;
-export default ControlSlice.reducer;
+  currentMusicIndex
+} = MusicPrimaryControlSlice.actions;
+export default MusicPrimaryControlSlice.reducer;
