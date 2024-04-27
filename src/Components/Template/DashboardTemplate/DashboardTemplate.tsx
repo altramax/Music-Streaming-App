@@ -12,7 +12,7 @@ const DashboardTemplate = () => {
   const musicArr: any = useAppSelector((state) => state.allMusic.music);
 
   useEffect(() => {
-    // dispatch(GetMusicArr());
+    dispatch(GetMusicArr());
   }, []);
 
   return (

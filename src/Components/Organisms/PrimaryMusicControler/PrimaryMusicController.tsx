@@ -1,9 +1,6 @@
 import PrimaryMusicControllerStyle from "./PrimaryMusicControllerStyle";
 import { useEffect, useRef, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
-import {
-  clearMusic,
-} from "../../../Redux/MusicPrimaryControlSlice";
+import {  useAppSelector } from "../../../Redux/Hooks";
 import backward from "../../../assets/backwards.svg";
 import pauseImg from "../../../assets/pause.svg";
 import playImg from "../../../assets/play.svg";
