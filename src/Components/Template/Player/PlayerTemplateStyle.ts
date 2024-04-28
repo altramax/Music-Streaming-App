@@ -13,7 +13,7 @@ const PlayerTemplateStyle = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 85vw;
-    .audio__container{
+    .audio__container {
       display: none;
     }
     .player__cover__img {
@@ -36,9 +36,13 @@ const PlayerTemplateStyle = styled.div`
         justify-content: center;
         align-items: center;
         gap: 20px;
+        // .image {
+        // }
         .player__music__image {
+          background-color: #A8B2B8;
           display: block;
           width: 30px;
+          height: 30px;
         }
         p {
           font-size: 10px;
@@ -46,13 +50,13 @@ const PlayerTemplateStyle = styled.div`
         }
       }
     }
-    
-  .primary__control {
-    width: 60%;
-  }
-  //  .secondary__control{
-  //   //  width: 10%;
-  //   }
+
+    .primary__control {
+      width: 60%;
+    }
+    //  .secondary__control{
+    //   //  width: 10%;
+    //   }
   }
 `;
 

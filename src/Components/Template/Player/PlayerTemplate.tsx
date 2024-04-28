@@ -1,5 +1,4 @@
 import PlayerTemplateStyle from "./PlayerTemplateStyle";
-import imageTest from "../../../assets/drake.jpg";
 import SecondaryMusicController from "../../Organisms/SecondaryMusicControler/SecondaryMusicController";
 import { useState } from "react";
 import {
@@ -28,8 +27,6 @@ const PlayerTemplate = () => {
     } else if (primaryControl.play === false) {
       audio.current?.pause();
     }
-
-  
   }, [
     primaryControl.play,
     primaryControl.musicIndex,
@@ -40,7 +37,6 @@ const PlayerTemplate = () => {
   useEffect(() => {
     dispatch(clearMusic());
   }, []);
-
 
   const playHandler = () => {
     if (audio.current?.ended && repeat === true) {
@@ -63,8 +59,6 @@ const PlayerTemplate = () => {
     dispatch(
       playMusic([primaryControl.currentMusicCollection[random], shuffleCount])
     );
-
-    console.log(primaryControl.currentMusicCollection);
 
     if (evt === "next" && !shuffle) {
       dispatch(
@@ -95,7 +89,6 @@ const PlayerTemplate = () => {
       );
     }
   };
-  // console.log(songIndex);
 
   const pauseHandler = () => {
     dispatch(pauseMusic());
@@ -120,22 +113,23 @@ const PlayerTemplate = () => {
           />
         </div>
         <div className="player__cover__img">
-          <img
-            src={
-              primaryControl.currentMusic !== null &&
-              primaryControl.currentMusic !== undefined
-                ? primaryControl.currentMusic.album?.cover
-                : imageTest
-            }
-            alt="Music Image"
-            className="player__music__image"
-          />
-          <p>
+          <div className="player__music__image">
+            {primaryControl.currentMusic !== null &&
+            primaryControl.currentMusic !== undefined ? (
+              <img
+                src={primaryControl.currentMusic.album?.cover}
+                alt="Music Image"
+                className="player__music__image"
+              />
+            ) : null}
+          </div>
+
+          <h6>
             {primaryControl.currentMusic !== null &&
             primaryControl.currentMusic !== undefined
               ? primaryControl.currentMusic?.title
-              : "Nothing is Playing"}
-          </p>
+              : "Nothing's Playing"}
+          </h6>
         </div>
         <div className="primary__control">
           <PrimaryMusicController

@@ -5,13 +5,20 @@ const CarouselStyle = styled.div`
     width: 100%;
     height: 320px;
     overflow: hidden;
+    font-family: "Montserrat", sans-serif;
   }
+  .carousel__group::-webkit-scrollbar{
+    display: none;
+  }
+  
   .carousel__group {
     display: flex;
     gap: 50px;
     padding: 20px;
     transition: transform 0.5s ease;
     overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   .slide{
     min-width: 100%;
@@ -21,14 +28,15 @@ const CarouselStyle = styled.div`
     padding: 20px;
     justify-content: space-between;
     align-items: center;
-    font-size: 15px;
+    font-size: 13px;
+    color: #A8B2B8;
     .line{
-      height: 2px;
+      height: 1px;
       width: 30px;
-      background-color: #000;
+      background-color: #A8B2B8;
     }
     img{
-      width: 20px;
+      width: 17px;
     }
     .right{
       rotate: 180deg;

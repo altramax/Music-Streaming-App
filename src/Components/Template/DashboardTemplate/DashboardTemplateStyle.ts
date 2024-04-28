@@ -6,6 +6,7 @@ const DashboardTemplateStyle = styled.div`
     position: relative;
     overflow: auto;
     height: 100dvh;
+   
     .dashboard__header {
       position: sticky;
       top:0;
@@ -31,7 +32,7 @@ const DashboardTemplateStyle = styled.div`
       }
     }
     .dashboard__body{
-
+      padding: 30px;
     }
     .card__group__container::-webkit-scrollbar {
       display: none;

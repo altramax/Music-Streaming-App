@@ -1,14 +1,13 @@
 import NavbarTemplateStyle from "./NavbarTemplateStyle";
 import userlogo from "../../../assets/avatar.svg";
-import headphone from "../../../assets/headphones.png";
-import search from "../../../assets/search.png";
-import heart from "../../../assets/heart.png";
-import hambrger from "../../../assets/hamburger.png";
-import play from "../../../assets/play.png";
+import { FaHeadphonesAlt } from "react-icons/fa";
+import { IoSearchOutline } from "react-icons/io5";
+import { IoHeartSharp } from "react-icons/io5";
+import { RiBarChartHorizontalLine } from "react-icons/ri";
+import { BsPlayCircleFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
 const NavbarTemplate = () => {
-
   return (
     <NavbarTemplateStyle>
       <div className="nav__container">
@@ -17,33 +16,46 @@ const NavbarTemplate = () => {
           <p className="header__text">Bob Smith</p>
         </div>
         <div className="nav__body">
-          <NavLink to="/" className={`nav__body__groups ${({ isActive }: any) => (isActive ? "active" : undefined)}`}>
+          <NavLink
+            to="/"
+            className={`nav__body__groups ${({ isActive }: any) =>
+              isActive ? "active" : undefined}`}
+          >
             <div className="nav__body__groups__sub">
-              <img src={headphone} alt="" />
+              <FaHeadphonesAlt size="20" color="#ffffff" />
               <p>Discover</p>
             </div>
           </NavLink>
-          <NavLink to="/search" className={`nav__body__groups ${({ isActive }: any) => (isActive ? "active" : undefined)}`}>
+          <NavLink
+            to="/search"
+            className={`nav__body__groups ${({ isActive }: any) =>
+              isActive ? "active" : undefined}`}
+          >
             <div className="nav__body__groups__sub">
-              <img src={search} alt="" />
+              <IoSearchOutline size="20" color="#ffffff" />
               <p>Search</p>
             </div>
           </NavLink>
-          <div className="nav__body__groups">
+          <NavLink
+            to="/favourites"
+            className={`nav__body__groups ${({ isActive }: any) =>
+              isActive ? "active" : undefined}`}
+          >
             <div className="nav__body__groups__sub">
-              <img src={heart} alt="" />
+              <IoHeartSharp size="20" color="#ffffff" />
               <p>Favourites</p>
             </div>
-          </div>
+          </NavLink>
+
           <div className="nav__body__groups">
             <div className="nav__body__groups__sub">
-              <img src={play} alt="" />
+              <BsPlayCircleFill size="20" color="#ffffff" />
               <p>Playlist</p>
             </div>
           </div>
           <div className="nav__body__groups">
             <div className="nav__body__groups__sub">
-              <img src={hambrger} alt="" />
+              <RiBarChartHorizontalLine size="20" color="#ffffff" />
               <p>Charts</p>
             </div>
           </div>

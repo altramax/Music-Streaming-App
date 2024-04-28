@@ -13,6 +13,7 @@ const DashboardTemplate = () => {
 
   useEffect(() => {
     dispatch(GetMusicArr());
+    console.log("reload");
   }, []);
 
   return (

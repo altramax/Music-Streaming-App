@@ -5,15 +5,15 @@ import elipsis from "../../../assets/elipsis.svg";
 import { IoHeartSharp } from "react-icons/io5";
 import { IoVolumeMedium } from "react-icons/io5";
 import { RiRepeatOneFill } from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
 import { IoVolumeMuteSharp } from "react-icons/io5";
 import {
   musicVolume,
   repeatMusic,
   shuffleMusic,
-
 } from "../../../Redux/MusicSecondaryControlSlice";
+import { favourite } from "../../../Redux/FavouriteSlice";
 
 const SecondaryMusicController = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +23,46 @@ const SecondaryMusicController = () => {
   const shuffleState = useAppSelector(
     (state) => state.secondaryControl.shuffle
   );
+  const currentSong = useAppSelector(
+    (state) => state.primaryControl.currentMusic
+  );
+  const favouriteArr = useAppSelector(
+    (state) => state.favouriteSongs.favouriteCollection
+  );
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    checkLikedState();
+    console.log("rerender");
+  }, [favouriteArr.length, currentSong]);
+
+  const checkLikedState = () => {
+    const like = favouriteArr?.filter(
+      (song: any) => song.id === currentSong.id
+    );
+    if (like.length > 0) {
+      setLiked(true);
+    } else {
+      setLiked(false);
+    }
+  };
+
+  const likeHandler = (evt: string) => {
+    if (evt === "like" && favouriteArr.length === 0) {
+      dispatch(favourite([currentSong]));
+    } else if (evt === "like" && favouriteArr.length > 0) {
+      dispatch(favourite([...favouriteArr, currentSong]));
+    }
+
+    if (evt === "dislike" && favouriteArr.length > 0) {
+      const songs = favouriteArr?.filter(
+        (song: any) => song.id !== currentSong.id
+      );
+      console.log(songs);
+      dispatch(favourite(songs));
+      setLiked(false);
+    }
+  };
 
   const showControlIcons = () => {
     setControlModal(!controlModal);
@@ -51,8 +91,9 @@ const SecondaryMusicController = () => {
       dispatch(musicVolume(true));
     } else if (volume) {
       dispatch(musicVolume(false));
+    }
   };
-  }
+
   return (
     <SecondaryMusicControllerStyle>
       <div className="player__details__group">
@@ -65,7 +106,23 @@ const SecondaryMusicController = () => {
         <div
           className={`player__desktop__icons ${controlModal ? "show" : "hide"}`}
         >
-          <IoHeartSharp size={20} color={"#808080"} />
+          <div>
+            {liked && (
+              <IoHeartSharp
+                size={20}
+                color={"red"}
+                onClick={() => likeHandler("dislike")}
+              />
+            )}
+
+            {!liked && (
+              <IoHeartSharp
+                size={20}
+                color={"#808080"}
+                onClick={() => likeHandler("like")}
+              />
+            )}
+          </div>
           <div onClick={shuffleHandler}>
             {shuffleState === false && (
               <TfiControlShuffle size={20} color={"#808080"} />
@@ -84,10 +141,12 @@ const SecondaryMusicController = () => {
           </div>
 
           <div onClick={muteHandler}>
-           { !volume ? <IoVolumeMedium size={20} color={"#808080"}/> : <IoVolumeMuteSharp  size={20} color={"red"}/>}
+            {!volume ? (
+              <IoVolumeMedium size={20} color={"#808080"} />
+            ) : (
+              <IoVolumeMuteSharp size={20} color={"red"} />
+            )}
           </div>
-          
- 
         </div>
       </div>
     </SecondaryMusicControllerStyle>

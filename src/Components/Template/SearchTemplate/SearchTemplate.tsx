@@ -7,7 +7,7 @@ import sun from "../../../assets/sun.svg";
 import search from "../../../assets/search.png";
 import { useState } from "react";
 import { searchMusicArr } from "../../../Redux/GetMusicSlice";
-import Carousel from "../../Organisms/Carousel/Carousel";
+import SearchLayout from "../../Organisms/Search/SearchLayout";
 
 const SearchTemplate = () => {
   const control = useAppSelector((state) => state.allMusic);
@@ -56,9 +56,9 @@ const SearchTemplate = () => {
             </div>
           ) : (
             <div className="card__group__container">
-              <Carousel
-                songArr={searchResults?.data}
-                collectionTitle="Results"
+              <SearchLayout
+                songArr={searchResults?.data?.data}
+                // collectionTitle="Results"
               />
             </div>
           )}

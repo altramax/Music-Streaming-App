@@ -1,4 +1,4 @@
-import styled from "styled-components";
+  import styled from "styled-components";
 
 const NavbarTemplateStyle = styled.div`
 z-index: 100;
@@ -9,7 +9,7 @@ position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    height: 100dvh;
+    height: 100vh;
     padding-top: 50px;
     // border-top-left-radius: 10px;
     // border-bottom-left-radius: 10px;
@@ -44,10 +44,6 @@ position: relative;
     justify-content: center;
     padding: 30px 0;
     text-decoration: none;
-    img {
-      width: 20px;
-      display: block;
-    }
     p {
       display: none;
       width: 0;

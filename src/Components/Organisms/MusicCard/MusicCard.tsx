@@ -13,10 +13,9 @@ const MusicCard = ({ song, collection}: cardType) => {
   const selectedSongHandler = () => {
     dispatch(pauseMusic());
     dispatch(currentMusic(song)); 
-    dispatch(playMusic([song, collection.data]));
-    dispatch(currentCollection(collection.data))
+    dispatch(playMusic([song, collection]));
+    dispatch(currentCollection(collection))
   };
-
 
   return (
     <MusicCardStyle>

@@ -4,11 +4,10 @@ import MusicCard from "../MusicCard/MusicCard";
 
 type carouseltype = {
   songArr: any;
-  collectionTitle : string;
+  collectionTitle: string;
 };
 
 const Carousel = ({ songArr, collectionTitle }: carouseltype) => {
-
   return (
     <CarouselStyle>
       <div className="carousel__container">
@@ -16,19 +15,16 @@ const Carousel = ({ songArr, collectionTitle }: carouseltype) => {
           <h3 className="title">{collectionTitle}</h3>
           <div className="line"></div>
           <div className="directions">
-            <img src={leftImg} alt="" className="left"  />
+            <img src={leftImg} alt="" className="left" />
             <img src={leftImg} alt="" className="right" />
           </div>
         </div>
 
-        <div
-          className="carousel__group"
-
-        >
+        <div className="carousel__group">
           {songArr !== null &&
             songArr !== undefined &&
             songArr.data.map((song: any, i: any) => (
-              <MusicCard collection={songArr} song={song} key={i} />
+              <MusicCard collection={songArr?.data} song={song} key={i} />
             ))}
         </div>
       </div>
@@ -37,11 +33,3 @@ const Carousel = ({ songArr, collectionTitle }: carouseltype) => {
 };
 
 export default Carousel;
-
-
-
-
-
-
-
-
