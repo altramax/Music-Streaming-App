@@ -9,7 +9,7 @@ type productsType = {
 const initialState: productsType = {
   repeat: "noRepeat",
   shuffle: false,
-  volume: true,
+  volume: false,
 };
 
 export const MusicSecondaryControlSlice = createSlice({

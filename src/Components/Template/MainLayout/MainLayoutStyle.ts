@@ -7,6 +7,7 @@ display: flex;
 justify-content: center;
 align-item: center;
 overflow: hidden;
+position: fixed;
 
 .nav{
  width: 15%;
